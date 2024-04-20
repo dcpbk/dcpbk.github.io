@@ -52,7 +52,7 @@ jobs:
       - name: Remove query strings from file names
         run: .github/bin/cleanup-querystrings.py
       - name: Replace text
-        run: find ./dist/ -type f -exec sed -i -E "s|https?://www\.dcpbk\.org(/?)|https://mwt.github.io/static-dcpbk\1|g" {} \;
+        run: find ./dist/ -type f -exec sed -i -E 's|https?:(\\?)/(\\?)/www\.dcpbk\.org|https:\1/\2/mwt.github.io/static-dcpbk|g' {} \;
       - name: Copy robots.txt
         run: cp robots.txt dist/ 
 
